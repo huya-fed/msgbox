@@ -1,0 +1,6 @@
+{
+    "repos": "http://www.cnblogs.com/hooray/archive/2011/09/26/2191770.html",
+    "version": "v1.0.0",
+    "name": "msgbox",
+    "main": "msgbox.js"
+}
