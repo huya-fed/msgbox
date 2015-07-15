@@ -193,7 +193,7 @@ ZENG.msgbox._hide = function() {
     }
 }; 
 
-if ( typeof dwfis.define === 'function') {
+if ( typeof dwfis !== "undefined" && typeof dwfis.define === "function") {
     // AMD. Register as an anonymous module.
     module.exports = ZENG;
 } else {
