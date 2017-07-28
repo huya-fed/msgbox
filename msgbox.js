@@ -126,8 +126,8 @@ ZENG.string = {RegExps: {trim: /^\s+|\s+$/g,ltrim: /^\s+/,rtrim: /\s+$/,nl2br: /
 
 
 ZENG.object = {
-    routeRE: /([\d\w_]+)/g,
-    route: function(obj, path) {
+	routeRE: /([\d\w_]+)/g,
+	route: function(obj, path) {
         obj = obj || {};
         path = String(path);
         var r = ZENG.object.routeRE, m;
@@ -159,12 +159,12 @@ ZENG.msgbox.show = function(msgHtml, type, timeout, opts) {
     }
     opts = opts || {};
     var _s = ZENG.msgbox,
-     template = '<span class="zeng_msgbox_layer" style="display:none;z-index:10000;" id="mode_tips_v2"><span class="gtl_ico_{type}"></span>{loadIcon}{msgHtml}<span class="gtl_end"></span></span>', loading = '<span class="gtl_ico_loading"></span>', typeClass = [0, 0, 0, 0, "succ", "fail", "clear"], mBox, tips;
+	 template = '<span class="zeng_msgbox_layer zeng_msgbox_layer_{layerStyle}" style="display:none;z-index:10000;" id="mode_tips_v2"><span class="gtl_ico_{type}"></span>{loadIcon}{msgHtml}<span class="gtl_end"></span></span>', loading = '<span class="gtl_ico_loading"></span>', typeClass = [0, 0, 0, 0, "succ", "fail", "clear"], mBox, tips;
     _s._loadCss && _s._loadCss(opts.cssPath);
     mBox = ZENG.dom.get("q_Msgbox") || ZENG.dom.createElementIn("div", document.body, false, {className: "zeng_msgbox_layer_wrap"});
     mBox.id = "q_Msgbox";
     mBox.style.display = "";
-    mBox.innerHTML = ZENG.string.format(template, {type: typeClass[type] || "hits",msgHtml: msgHtml || "",loadIcon: type == 6 ? loading : ""});
+    mBox.innerHTML = ZENG.string.format(template, {type: typeClass[type] || "hits",msgHtml: msgHtml || "",loadIcon: type == 6 ? loading : "", layerStyle: type == 6 ? 'loading' : "normal"});
     _s._setPosition(mBox, timeout, opts.topPosition);
 };
 ZENG.msgbox._setPosition = function(tips, timeout, topPosition) {
